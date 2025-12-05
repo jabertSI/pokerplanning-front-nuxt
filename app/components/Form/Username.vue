@@ -30,7 +30,7 @@
           :disabled="!formValid"
           color="neutral"
           type="text"
-          >Save</UButton
+          >Join room</UButton
         >
       </div>
     </template>

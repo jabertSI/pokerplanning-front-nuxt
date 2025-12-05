@@ -1,6 +1,10 @@
 <template>
   <UApp>
-    <UHeader title="Poker Planning" />
+    <UHeader title="Poker Planning">
+      <template #right>
+        {{ username }}
+      </template>
+    </UHeader>
 
     <UContainer>
       <UMain>

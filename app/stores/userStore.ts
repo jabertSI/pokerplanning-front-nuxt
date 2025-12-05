@@ -3,7 +3,6 @@ export const useUserStore = defineStore(
   () => {
     const username = ref<string | null>(null);
     const vote = ref<number | null>(null);
-    const roomUuid = ref(null);
 
     return { username, vote };
   },
