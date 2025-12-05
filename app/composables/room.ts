@@ -12,8 +12,6 @@ export const useRoom = () => {
   const router = useRouter();
 
   urlWS.value = config.public.URL_WS
-  console.log(urlWS.value)
-  console.log(config)
 
   async function joinRoom(roomUuid, name) {
     socket.value = io(urlWS.value);
