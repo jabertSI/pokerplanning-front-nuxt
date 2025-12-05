@@ -43,8 +43,11 @@ const usernameInput = ref<string>("");
 
 const { username } = storeToRefs(useUserStore());
 
+const emit = defineEmits(["usernameSet"]);
+
 function setUsername() {
   username.value = usernameInput.value;
+  emit("usernameSet");
 }
 
 const formValid = computed(() => {
