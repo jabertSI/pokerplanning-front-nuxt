@@ -5,6 +5,7 @@ const URL =
     ? process.env.URL_WS
     : "http://localhost:3000";
 
+console.log(process.env)
 export const useRoom = () => {
   const connected = ref();
   const socket = ref();
