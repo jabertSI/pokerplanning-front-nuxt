@@ -1,21 +1,22 @@
 import { io } from "socket.io-client";
 
-
-const config = useRuntimeConfig();
-
-const URL = config.URL_WS
-
-console.log(process.env)
 export const useRoom = () => {
+  const config = useRuntimeConfig();
+
   const connected = ref();
   const socket = ref();
   const players = ref();
   const result = ref();
+  const urlWS = ref(config.public.URL_WS)
 
   const router = useRouter();
 
+  urlWS.value = config.public.URL_WS
+  console.log(urlWS.value)
+  console.log(config)
+
   async function joinRoom(roomUuid, name) {
-    socket.value = io(URL);
+    socket.value = io(urlWS.value);
     socket.value.on("connect", () => {
       console.log("CONECTED");
       connected.value = true;
