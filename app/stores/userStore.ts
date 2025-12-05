@@ -8,8 +8,8 @@ export const useUserStore = defineStore(
     return { username, vote };
   },
   {
-    persist:{
-      omit: ['vote' ,'roomUuid'],
+    persist: {
+      omit: ["vote", "roomUuid"],
     },
   },
 );

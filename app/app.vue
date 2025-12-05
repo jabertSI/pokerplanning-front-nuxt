@@ -1,5 +1,7 @@
 <template>
   <UApp>
+    <UHeader title="Poker Planning" />
+
     <UContainer>
       <UMain>
         <NuxtPage />
@@ -7,3 +9,7 @@
     </UContainer>
   </UApp>
 </template>
+
+<script setup lang="ts">
+const { username } = storeToRefs(useUserStore());
+</script>

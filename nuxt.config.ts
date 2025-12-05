@@ -5,7 +5,7 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ["@nuxt/ui", "@pinia/nuxt", "pinia-plugin-persistedstate/nuxt"],
   piniaPluginPersistedstate: {
-    storage: 'localStorage',
+    storage: "localStorage",
     debug: true,
   },
   css: ["~/assets/css/main.css"],
