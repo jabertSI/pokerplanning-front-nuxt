@@ -12,4 +12,11 @@ export default defineNuxtConfig({
     debug: true,
   },
   css: ["~/assets/css/main.css"],
+  runtimeConfig: {
+    public: {
+      URL_WS: process.env.NODE_ENV === "production"
+        ? process.env.URL_WS
+        : "http://localhost:3000"
+    }
+  }
 });

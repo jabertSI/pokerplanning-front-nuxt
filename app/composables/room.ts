@@ -1,9 +1,9 @@
 import { io } from "socket.io-client";
 
-const URL =
-  process.env.NODE_ENV === "production"
-    ? process.env.URL_WS
-    : "http://localhost:3000";
+
+const config = useRuntimeConfig();
+
+const URL = config.URL_WS
 
 console.log(process.env)
 export const useRoom = () => {
