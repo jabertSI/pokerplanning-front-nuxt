@@ -7,11 +7,12 @@ export const useRoom = () => {
   const socket = ref();
   const players = ref();
   const result = ref();
-  const urlWS = ref(config.public.URL_WS)
+  const urlWS = ref(config.public.URL_WS);
 
   const router = useRouter();
 
-  urlWS.value = config.public.URL_WS
+  urlWS.value = config.public.URL_WS;
+
 
   async function joinRoom(roomUuid, name) {
     socket.value = io(urlWS.value);
@@ -40,5 +41,13 @@ export const useRoom = () => {
     });
   }
 
-  return { connected, socket, joinRoom, players, result };
+  function sendVote(vote, roomUuid) {
+    socket.value.emit(ClientEvents.SEND_VOTE, { vote: vote, room: roomUuid });
+  }
+
+  function retrieveVote( roomUuid) {
+    socket.value.emit(ClientEvents.RETRIEVE_VOTES, roomUuid);
+  }
+
+  return { connected, socket, joinRoom, players, result, sendVote, retrieveVote };
 };
