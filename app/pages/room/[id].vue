@@ -10,7 +10,6 @@
       @click="sendVote(1)"
       class="text-2xl text-center"
       color="neutral"
-      type="text"
       size="sm"
       variant="solid"
       >1</UButton
@@ -19,7 +18,6 @@
       @click="sendVote(2)"
       class="text-2xl text-center"
       color="neutral"
-      type="text"
       size="sm"
       variant="solid"
       >2</UButton
@@ -28,7 +26,6 @@
       @click="sendVote(3)"
       class="text-2xl text-center"
       color="neutral"
-      type="text"
       size="sm"
       variant="solid"
       >3</UButton
@@ -38,11 +35,18 @@
     <UButton
       @click="retrieveVote"
       class="text-2xl text-center"
-      color="neutral"
-      type="text"
+      color="success"
       size="sm"
       variant="solid"
       >Reveal</UButton
+    >
+    <UButton
+      @click="newVote"
+      class="text-2xl text-center"
+      color="warning"
+      size="sm"
+      variant="solid"
+      >New vote</UButton
     >
   </div>
   <div class="flex flex-wrap gap-5 items-center justify-center mt-8">
@@ -69,11 +73,15 @@ onUnmounted(() => {
 });
 
 function sendVote(vote) {
-  room.sendVote(vote, route.params.id)
+  room.sendVote(vote, route.params.id);
 }
 
 function retrieveVote() {
-  room.retrieveVote(route.params.id)
+  room.retrieveVote(route.params.id);
+}
+
+function newVote() {
+  room.newVote(route.params.id);
 }
 
 async function initRoom() {
